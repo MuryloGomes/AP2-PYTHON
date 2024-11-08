@@ -1,4 +1,4 @@
-from abstract_etl import AbstractETL
+from etl.abstract_etl import AbstractETL
 import pandas as pd  # Importando pandas
 from sqlalchemy import create_engine  # Importando create_engine de sqlalchemy
 from dotenv import load_dotenv
