@@ -23,3 +23,5 @@ etl = ETL(origem, destino)
 etl.extract()
 etl.transform()
 etl.load()
+
+# %%

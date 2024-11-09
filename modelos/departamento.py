@@ -1,12 +1,17 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
 
 from modelos.base import Base
 
+from datetime import datetime
+
+from sqlalchemy.orm import relationship
+
+from empregado import Empregado 
 
 class Departamento(Base.Base, Base):
     __tablename__ = "departamento"
-    numero = Column#(<Domínio e restrições>)
-    nome = Column#(<Domínio e restrições>)
-    numeroEmpregado = Column#(<Domínio e restrições>)
-    nssEmpregrado = Column#(<Domínio e restrições>)
-    dataInicio = Column#(<Domínio e restrições>)
+    numeroDepart = Column(Integer,primary_key=True, unique=True)
+    nome = Column(String(50),unique=True, nullable=False)
+    numeroEmpregado = Column(Integer,nullable=False, unique=True)
+    nssEmpregrado = Column(Integer,ForeignKey("nss"))
+    dataInicio = Column(datetime())
