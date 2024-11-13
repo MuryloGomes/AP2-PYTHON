@@ -4,7 +4,12 @@ from logging.config import fileConfig
 from dotenv import load_dotenv
 
 from modelos.base import Base
-from modelos.user import User
+from modelos.empregado import Empregado
+from modelos.departamento import Departamento
+from modelos.dependente import Dependente
+from modelos.localizacao import Localizacao
+from modelos.projeto import Projeto
+from modelos.trabalhaem import TrabalhaEm
 
 load_dotenv()
 
@@ -36,7 +41,7 @@ def run_migrations_offline() -> None:
     senha = os.getenv("SENHA")
     host = os.getenv("HOST")
     banco_de_dados = os.getenv("BANCO_DE_DADOS")
-    url = f"mssql+pyodbc://{usuario}:{senha}@{host}/{banco_de_dados}?driver=ODBC+Driver+17+for+SQL+Server"
+    url = f"mssql+pyodbc://{host}/{banco_de_dados}?driver=ODBC+Driver+17+for+SQL+Server"
 
     context.configure(
         url=url,
@@ -60,7 +65,7 @@ def run_migrations_online() -> None:
     senha = os.getenv("SENHA")
     host = os.getenv("HOST")
     banco_de_dados = os.getenv("BANCO_DE_DADOS")
-    url = f"mssql+pyodbc://{usuario}:{senha}@{host}/{banco_de_dados}?driver=ODBC+Driver+17+for+SQL+Server"
+    url = f"mssql+pyodbc://{host}/{banco_de_dados}?driver=ODBC+Driver+17+for+SQL+Server"
 
     connectable = create_engine(url)
 

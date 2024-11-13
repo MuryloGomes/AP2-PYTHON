@@ -17,7 +17,7 @@ banco_de_dados = os.getenv("BANCO_DE_DADOS")
 # %%
 # testando o ETL
 origem = "empresa_banco_dados.xlsx"
-destino = f"mssql+pyodbc://{usuario}:{senha}@{host}/{banco_de_dados}?driver=ODBC+Driver+17+for+SQL+Server"
+destino = f"mssql+pyodbc://{host}/{banco_de_dados}?driver=ODBC+Driver+17+for+SQL+Server"
 etl = ETL(origem, destino)
 
 etl.extract()
